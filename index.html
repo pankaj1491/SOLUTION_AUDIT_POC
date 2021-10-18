@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- UI Core CSS -->
+    <script src="./static/js/index.js"></script>
+    <script src="./static/js/jquery-3.4.1.min.js"></script>
+    <script src="./static/js/popper.min.js"></script>
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="./static/images/favicon1.ico" />
+    <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://uicore.dellcdn.com/1.5.1/css/dds-reboot.min.css">
+    <link rel="stylesheet" href="https://uicore.dellcdn.com/1.5.1/css/dds-all-with-fonts.min.css">
+    <title>DSA-Gii Errors/Warnings</title>
+</head>
+
+<body>
+    <div class="mainContainer">
+        <div class="header dds__navbar dds__msthd-navbar-top">
+                    <div class="dds__row dds__no-gutter">
+                        <div class="dellIcon">
+                            <div class="dds__msthd-icon-ctnr dds__msthd-logo dds__d-lg-block">
+                                <a class="dds__icons dds__msthd-dell-icon" href="/"></a>
+                            </div>
+                        </div>
+                        <div class="dds__msthd-brand-ctnr dds__d-none dds__d-lg-block"> <span>SOLUTION AUDIT TOOL</span> </div>
+                    </div>
+        </div>
+        <div class="mainbody">
+            <div class="inputContainer">
+                <span>
+                        <label for="region"><b>Region:</b></label>
+                        <select name="regionName" id="region">
+                            <option value="AMER">AMER</option> 
+                            <option value="EMEA">EMEA</option>      
+                            <option value="APAC">APAC</option>
+                        </select>
+                </span>
+                &nbsp; &nbsp;
+                <span>
+                    <label for="sol"><b>SolutionID:</b></label>
+                    <input type="text" placeholder="2537884" id="sol">
+                </span>
+                &nbsp; &nbsp;
+                <span>
+                    <label for="version"><b>Version:</b></label>
+                    <input type="text" placeholder="1" id="version">
+                </span>
+                &nbsp; &nbsp;
+                <span>
+                        <label for="sales"><b>SaleTool:</b></label>
+                        <select name="SalesCHName" id="sales">
+                            <option value="Dsa">Dsa</option> 
+                            <option value="Gii">Gii</option>      
+                      </select>
+                </span>
+                &nbsp; &nbsp;
+                <span>
+                    <button class="dds__btn dds__btn-primary" id="Audit" onclick="getErrosWarnings(region.value,sol.value,version.value,sales.value)"><b>Audit</b></button>
+                </span>
+            </div>
+            <div class="tableContainer">
+                <table class="table" id="auditTable" cellpadding='10px' style="text-align:center;">
+                    <thead class="tableHeader">
+                        <tr>
+                            <th>SolutionID</th>
+                            <th>Sales/Region</th>
+                            <th>Product/OC</th>
+                            <th>Warnings</th>
+                            <th>Errors</th>
+                        </tr>                
+                    </thead>
+                    <tbody>
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <footer class="dds__default-footer" >
+                <nav class="dds__footer-nav">
+                    <div >
+                        <ul class="dds__page-nav">
+                            <li> <a href="#" class="">Site designed and Developed by GOPO TSE</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="dds__footer-legal-nav">
+                    <div >
+                        <ul>
+                            <li> <a href="//www.dell.com/learn/us/en/uscorp1/site-terms-of-use-copyright" class="">© 2021 Dell</a> </li>
+                            <li> <a href="//www.dell.com/learn/us/en/uscorp1/policies-privacy" class="">Privacy Statement</a> </li>
+                        </ul>
+                    </div>
+                </nav>
+        </footer>
+    </div>
+</body>
+</html>
