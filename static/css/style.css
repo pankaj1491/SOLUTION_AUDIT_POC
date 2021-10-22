@@ -12,7 +12,7 @@
 .tableHeader{
   position: sticky;
   top: 0;
-  background-color:dimgray;
+  background-color:lightslategray;
   border: 1px solid gray;
 }
 .tableContainer{
@@ -26,7 +26,7 @@
   border-radius: 0.25em;
 }
 .inputContainer{
-  padding-left: 90px;
+  padding-left: 20px;
   margin-top: 10px;
   margin-left: 200px;
   padding-top: 5px;
