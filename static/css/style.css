@@ -5,6 +5,7 @@
 .header{
  background-color:  #0076ce;
  color: #fff;
+ height: 20px;
 }
 .dellIcon{
   margin-top: 3px;
@@ -12,7 +13,7 @@
 .tableHeader{
   position: sticky;
   top: 0;
-  background-color:lightslategray;
+  background-color:lightgrey;
   border: 1px solid gray;
 }
 .tableContainer{
@@ -54,10 +55,10 @@ td {
 #err{
   background-color:rgba(255, 0, 0, 0.678);
 }
-body{
+/* body{
 
   background-image: url('../images/bckgrnd.jpg');
-}
+} */
 @keyframes spin {
   0% { transform: translate(-5%,-5%) rotate(0deg); }
   100% {  transform: translate(-5%,-5%) rotate(60deg); }
