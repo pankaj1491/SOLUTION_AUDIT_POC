@@ -1,7 +1,3 @@
-.table {
-  border-collapse: inherit;
-  width: 100%;
-}
 .header{
  background-color:  #0076ce;
  color: #fff;
@@ -10,44 +6,42 @@
 .dellIcon{
   margin-top: 3px;
 }
-.tableHeader{
-  position: sticky;
-  top: 0;
-  background-color:lightgrey;
-  border: 1px solid gray;
-}
 .tableContainer{
   margin-top: 20px;
-  margin-left: 100px;
-  height: 435px;
-  overflow-y: scroll;
-  width: 1300px;
-  border: 3px solid #0076ce;
-  background-color:#fff;
-  border-radius: 0.25em;
+  margin-left: 200px;
+  height: 480px;
+  width: 1000px;
 }
 .inputContainer{
   padding-left: 20px;
-  margin-top: 10px;
-  margin-left: 200px;
   padding-top: 5px;
   border: 2px solid gray;
   border-radius: 1em;
   width : 1000px;
   height: 50px;
-  background-color:beige;
+  background-color:whitesmoke;
   color:black;
 }
  .mainContainer{
    display: grid;
  }
-
+ 
+.dds__default-footer{
+  position: fixed;
+}
+.inputMContainer{
+  
+  margin-top: 10px;
+  margin-left: 200px;
+  
+}
 thead,
 th,
 tr,
 td {
-  border: 1px solid gray;
-  text-align: center;
+  /* border: 1px solid gray; */
+  text-align: left;
+  word-wrap: break-word;
 }
 #war{
   background-color: yellow;
@@ -59,15 +53,3 @@ td {
 
   background-image: url('../images/bckgrnd.jpg');
 } */
-@keyframes spin {
-  0% { transform: translate(-5%,-5%) rotate(0deg); }
-  100% {  transform: translate(-5%,-5%) rotate(60deg); }
-}
-.dds__msthd-icon-ctnr.dds__msthd-logo.dds__d-lg-block{
-  /* position: relative;
-  top:5px; */
-  transform: translate(-5%,-5%);
-  animation: spin 8s  calc();
-
-}
-
