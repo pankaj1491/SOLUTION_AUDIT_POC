@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- UI Core CSS -->
@@ -15,85 +16,283 @@
 </head>
 
 <body>
+    <div id="dds__full-screen-overlay" class="dds__overlay">
+    </div>
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1"
+        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+            <symbol id="dds__search" viewBox="0 0 32 32">
+                <title>dds__search</title>
+                <path
+                    d="M30.306 28.988l-9.412-9.412c1.506-1.882 2.447-4.329 2.447-6.965 0.188-5.835-4.706-10.729-10.729-10.729s-10.729 4.894-10.729 10.918 4.894 10.729 10.729 10.729c2.635 0 5.082-0.941 6.965-2.635l9.412 9.412 1.318-1.318zM12.612 21.647c-4.894 0-8.847-3.953-8.847-8.847s3.953-9.035 8.847-9.035 8.847 3.953 8.847 8.847-3.953 9.035-8.847 9.035z">
+                </path>
+            </symbol>
+            <symbol id="dds__user" viewBox="0 0 32 32">
+                <title>dds__user</title>
+                <path
+                    d="M16 17.694c-4.329 0-7.906-3.576-7.906-7.906s3.576-7.906 7.906-7.906c4.329 0 7.906 3.576 7.906 7.906 0 4.518-3.576 7.906-7.906 7.906zM16 3.953c-3.388 0-6.024 2.635-6.024 6.024s2.635 6.024 6.024 6.024c3.388 0 6.024-2.635 6.024-6.024s-2.635-6.024-6.024-6.024z">
+                </path>
+                <path
+                    d="M30.306 29.929h-28.612l0.188-0.941c0-0.376 0.941-7.718 6.588-11.482l0.565-0.376 0.565 0.376c3.576 3.2 9.224 3.2 12.8 0.188l0.565-0.376 0.565 0.376c5.835 3.765 6.588 11.106 6.588 11.482l0.188 0.753zM3.765 28.047h24.282c-0.376-1.882-1.694-6.024-5.082-8.659-4.141 3.012-9.976 3.012-14.118 0-3.388 2.635-4.518 6.776-5.082 8.659z">
+                </path>
+            </symbol>
+            <symbol id="dds__cart" viewBox="0 0 32 32">
+                <title>dds__cart</title>
+                <path
+                    d="M30.118 7.341h-23.153l-1.506-4.894h-3.576v1.882h2.071l5.835 20.141h15.624v-1.882h-14.118l-0.941-3.2h17.318l2.447-12.047zM9.788 17.506l-2.447-8.282h20.329l-1.694 8.282h-16.188z">
+                </path>
+                <path
+                    d="M24.094 23.153c-1.694 0-3.2 1.318-3.2 3.2s1.318 3.2 3.2 3.2 3.2-1.318 3.2-3.2-1.506-3.2-3.2-3.2zM24.094 27.671c-0.753 0-1.318-0.565-1.318-1.318s0.565-1.318 1.318-1.318 1.318 0.565 1.318 1.318-0.565 1.318-1.318 1.318z">
+                </path>
+                <path
+                    d="M10.918 23.153c-1.694 0-3.2 1.318-3.2 3.2s1.318 3.2 3.2 3.2 3.2-1.318 3.2-3.2-1.506-3.2-3.2-3.2zM10.918 27.671c-0.753 0-1.318-0.565-1.318-1.318s0.565-1.318 1.318-1.318 1.318 0.565 1.318 1.318-0.565 1.318-1.318 1.318z">
+                </path>
+            </symbol>
+            <symbol id="dds__menu-closed" viewBox="0 0 32 32">
+                <title>dds__menu-closed</title>
+                <path d="M5.176 6.965h21.647v2.071h-21.647v-2.071z"></path>
+                <path d="M5.176 14.871h21.647v2.071h-21.647v-2.071z"></path>
+                <path d="M5.176 22.965h21.647v2.071h-21.647v-2.071z"></path>
+            </symbol>
+            <symbol id="dds__globe-simple" viewBox="0 0 32 32">
+                <title>dds__globe-simple</title>
+                <path
+                    d="M16 0c-8.837 0-16 7.163-16 16s7.163 16 16 16c8.837 0 16-7.163 16-16v0c0-8.837-7.163-16-16-16v0zM2.18 17.060h5.24c0.034 1.839 0.243 3.609 0.613 5.32l-0.033-0.18h-4.38c-0.767-1.495-1.281-3.241-1.437-5.089l-0.003-0.051zM17.060 7.68v-5.22c1.973 1.115 3.421 2.962 3.987 5.163l0.013 0.057zM21.76 9.8c0.374 1.515 0.625 3.278 0.698 5.087l0.002 0.053h-5.4v-5.14zM14.94 2.46v5.22h-4c0.579-2.258 2.027-4.105 3.959-5.199l0.041-0.021zM14.94 9.8v5.14h-5.4c0.075-1.862 0.326-3.625 0.738-5.325l-0.038 0.185zM7.42 14.94h-5.24c0.155-1.899 0.67-3.646 1.476-5.218l-0.036 0.078h4.38c-0.335 1.53-0.545 3.3-0.58 5.113l-0 0.027zM9.54 17.060h5.4v5.14h-4.7c-0.374-1.515-0.625-3.278-0.698-5.087l-0.002-0.053zM14.94 24.32v5.22c-1.973-1.115-3.421-2.962-3.987-5.163l-0.013-0.057zM17.060 29.54v-5.22h4c-0.579 2.258-2.027 4.105-3.959 5.199l-0.041 0.021zM17.060 22.2v-5.14h5.4c-0.075 1.862-0.326 3.625-0.738 5.325l0.038-0.185zM24.58 17.060h5.24c-0.144 1.899-0.66 3.647-1.475 5.215l0.035-0.075h-4.38c0.335-1.53 0.545-3.3 0.58-5.113l0-0.027zM24.58 14.94c-0.034-1.839-0.243-3.609-0.613-5.32l0.033 0.18h4.42c0.767 1.495 1.281 3.241 1.437 5.089l0.003 0.051zM27.060 7.68h-3.7c-0.543-1.741-1.32-3.255-2.31-4.603l0.030 0.043c2.434 0.974 4.457 2.54 5.955 4.525l0.025 0.035zM10.92 3.12c-0.96 1.305-1.737 2.819-2.25 4.451l-0.030 0.109h-3.7c1.523-2.020 3.546-3.586 5.887-4.527l0.093-0.033zM4.92 24.32h3.72c0.543 1.741 1.32 3.255 2.31 4.603l-0.030-0.043c-2.434-0.974-4.457-2.54-5.955-4.525l-0.025-0.035zM21.060 28.88c0.96-1.305 1.737-2.819 2.25-4.451l0.030-0.109h3.7c-1.514 2.022-3.531 3.589-5.868 4.527l-0.092 0.033z">
+                </path>
+            </symbol>
+            <symbol id="dds__save-disk" viewBox="0 0 32 32">
+                <title>dds__save-disk</title>
+                <path
+                    d="M0 0v31.86l28.38 0.14 3.62-3.58v-28.42zM12.34 29.78v-3.78h-2.16v3.78h-2.66v-6.46h14.92v6.52h-10.1zM29.84 27.54l-2.36 2.32h-2.88v-8.66h-19.24v8.56h-3.2v-27.62h27.68zM5.4 12.26h21.2v2.14h-21.2zM5.4 6.92h21.2v2.14h-21.2z"
+                    </path>
+            </symbol>
+            <symbol id="dds__add-cir" viewBox="0 0 32 32">
+                <title>dds__add-cir</title>
+                <path
+                    d="M31.86 14c-0.945-7.243-6.617-12.915-13.779-13.851l-0.081-0.009c-0.6-0.088-1.293-0.139-1.999-0.14h-0.001c-8.789 0.062-15.891 7.201-15.891 16 0 8.093 6.008 14.782 13.808 15.851l0.083 0.009c0.6 0.088 1.293 0.139 1.999 0.14h0.001c8.83-0.008 15.986-7.169 15.986-16 0-0.705-0.046-1.399-0.134-2.080l0.009 0.080zM26.4 25.18c-2.552 2.876-6.257 4.679-10.383 4.679-7.655 0-13.86-6.205-13.86-13.86s6.205-13.86 13.86-13.86c7.020 0 12.822 5.22 13.735 11.99l0.008 0.071c0.070 0.527 0.11 1.135 0.11 1.754 0 3.542-1.315 6.776-3.484 9.242l0.013-0.016zM17.14 7h-2.4v7.8h-7.74v2.4h7.74v7.8h2.4v-7.8h7.86v-2.4h-7.86z">
+                </path>
+            </symbol>
+            <symbol id="dds__pencil" viewBox="0 0 32 32">
+                <title>dds__pencil</title>
+                <path
+                    d="M26.14 0l-22.46 22.46-3.32 8.52-0.36 1.020 1.020-0.36 8.54-3.34 22.44-22.44zM3.74 28.26l1.72-4.44 2.74 2.7zM9.74 25.040l-2.82-2.8 16-16 2.82 2.78-16 16zM24.48 4.72l1.66-1.66 2.8 2.8-1.64 1.64z">
+                </path>
+            </symbol>
+            <symbol id="dds__trash" viewBox="0 0 32 32">
+                <title>dds__trash</title>
+                <path
+                    d="M25.5 29.86h-19.2v-21.32h-2.14v23.46h23.46v-23.46h-2.12zM14.82 11.1h2.14v16.9h-2.14zM20.8 11.1h2.14v16.9h-2.14zM8.86 11.1h2.12v16.9h-2.12zM20.58 4v-4h-9.38v4h-8.96v2.18h27.52v-2.18zM13.34 2h5.32v2h-5.32z">
+                </path>
+            </symbol>
+            <symbol id="dds__filter" viewBox="0 0 32 32">
+                <title>dds__filter</title>
+                <path
+                    d="M30.2 2.54h-28.4v3.46l10.9 13.58v9.88l6.54-2.76v-7.12l10.96-13.58v-3.46zM28 5.3l-10.9 13.52v6.46l-2.26 0.96v-7.42l-0.48-0.58-10.36-12.92v-0.64h24v0.62z">
+                </path>
+            </symbol>
+            <symbol id="dds__gear" viewBox="0 0 32 32">
+                <title>dds__gear</title>
+                <path
+                    d="M32 18.26v-4.9l-4.14-1.36-0.56-1.44 2-4-3.52-3.64-4 2-1.44-0.48-1.62-4.44h-5l-1.38 4.4-1.44 0.56-4.42-2.2-3.52 3.5 2.28 4.24-0.74 1.5-4.5 1.52v4.92l4.58 1.44 0.64 1.42-2 4.32 3.52 3.48 4.24-2.2 1.48 0.66 1.42 4.44h5.060l1.38-4.48 1.46-0.64 4.12 1.88 3.48-3.46-2-4 0.44-1.42 4.18-1.62zM26.8 24.86l-1.36 1.34-3.62-1.64-3.24 1.44-1.22 4h-2l-1.36-4-3.26-1.48-3.78 2-1.34-1.32 1.86-3.82-1.34-3.26-4-1.24v-1.86l3.86-1.34 1.62-3.22-2-3.82 1.3-1.28 4 2 3.080-1.36 1.22-3.88h2l1.4 4 3.26 1.1 3.48-1.72 1.34 1.34-1.7 3.58 1.26 3.22 3.64 1.24v1.88l-3.9 1.4-0.98 3.26 1.72 3.44zM16 10.18c-3.206 0.011-5.8 2.613-5.8 5.82 0 3.214 2.606 5.82 5.82 5.82s5.82-2.606 5.82-5.82v0c0 0 0 0 0 0 0-3.214-2.606-5.82-5.82-5.82-0.007 0-0.014 0-0.021 0h0.001zM16 19.66c-2.015-0.023-3.64-1.661-3.64-3.68 0-2.032 1.648-3.68 3.68-3.68s3.68 1.648 3.68 3.68c0 0.007 0 0.014 0 0.021v-0.001c-0.023 2.026-1.67 3.66-3.7 3.66-0.007 0-0.014 0-0.021 0h0.001z">
+                </path>
+            </symbol>
+            <symbol id="dds__cancelled" viewBox="0 0 32 32">
+                <title>dds__cancelled</title>
+                <path
+                    d="M27.32 4.68c-2.895-2.892-6.892-4.68-11.307-4.68-8.837 0-16 7.163-16 16s7.163 16 16 16c4.415 0 8.413-1.788 11.308-4.68v0c2.899-2.896 4.693-6.899 4.693-11.32s-1.793-8.424-4.692-11.32v0zM6.2 6.2c2.502-2.51 5.964-4.063 9.787-4.063 3.452 0 6.608 1.266 9.030 3.358l-0.018-0.015-19.52 19.52c-2.078-2.404-3.343-5.561-3.343-9.013 0-3.824 1.553-7.285 4.063-9.787v0zM25.8 25.8c-2.502 2.51-5.964 4.063-9.787 4.063-3.452 0-6.608-1.266-9.030-3.358l0.018 0.015 19.52-19.52c2.078 2.404 3.343 5.561 3.343 9.013 0 3.824-1.553 7.285-4.063 9.787v0z">
+                </path>
+            </symbol>
+            <symbol id="dds__alert-check-cir" viewBox="0 0 32 32">
+                <title>dds__alert-check-cir</title>
+                <path
+                    d="M8.52 14.58l-1.46 1.42 6.52 6.34 18.42-18.22-1.48-1.48-16.96 16.84zM28.82 12.76c0.262 0.967 0.421 2.081 0.44 3.229v0.011c0 7.5-6.080 13.58-13.58 13.58s-13.58-6.080-13.58-13.58c0-7.5 6.080-13.58 13.58-13.58v0c2.748 0.004 5.302 0.832 7.429 2.251l-0.049-0.031 1.54-1.52c-2.477-1.752-5.559-2.8-8.886-2.8-0.012 0-0.024 0-0.036 0h0.002c-0.017 0-0.038 0-0.058 0-8.693 0-15.74 7.047-15.74 15.74s7.047 15.74 15.74 15.74c8.693 0 15.74-7.047 15.74-15.74 0-1.796-0.301-3.522-0.855-5.131l0.033 0.111-1.72 1.72z">
+                </path>
+            </symbol>
+            <symbol id="dds__log-out" viewBox="0 0 32 32">
+                <title>dds__log-out</title>
+                <path
+                    d="M24 8l-1.5 1.5 5.5 5.48h-17.040v2.12h17.040l-5.42 5.44 1.42 1.46 8-8zM21.32 29.86h-19.2v-27.72h19.2v2.26h2.12v-4.4h-23.44v32h23.44v-4.4h-2.12z">
+                </path>
+            </symbol>
+        </defs>
+    </svg>
     <div class="mainContainer">
         <div class="header dds__navbar dds__msthd-navbar-top">
-                    <div class="dds__row dds__no-gutter">
-                        <div class="dellIcon">
-                            <div class="dds__msthd-icon-ctnr dds__msthd-logo dds__d-lg-block">
-                                <a class="dds__icons dds__msthd-dell-icon" href="/"></a>
+            <div class="dds__row dds__no-gutter">
+                <div class="dellIcon">
+                    <div class="dds__msthd-icon-ctnr dds__msthd-logo dds__d-lg-block">
+                        <a class="dds__icons dds__msthd-dell-icon" href="/"></a>
+                    </div>
+                </div>
+                <div class="dds__msthd-brand-ctnr dds__d-none dds__d-lg-block"> <span>SOLUTION AUDIT TOOL</span> </div>
+            </div>
+        </div>
+        <div>
+            <div class="mainbody">
+                <div id="independent-accordion-showhide" class="dds__accordion dds__mb-3">
+                    <div class="dds__show-hide-container">
+                        <button id="indpt-show-all-btn" class="dds__btn-link dds__show-all" aria-expanded="false">
+                            <span><b>Show All</b></span> </button> |
+                        <button id="indpt-hide-all-btn" class="dds__btn-link dds__hide-all"
+                            aria-expanded="false"><span><b>Hide All</b></span> </button>
+                    </div>
+                    <div class="dds__accordion-card">
+                        <div class="dds__accordion-card-header">
+                            <h5 class="dds__mb-0"> <button class="dds__accordion-btn dds__d-flex" type="button"
+                                    data-toggle="dds__collapse" data-target="#panelOneNested" aria-expanded="true"
+                                    aria-controls="panelOneNested"> <i class="dds__icons dds__chevron-right"
+                                        aria-hidden="true"></i>
+                                    <span id="headline1" class="dds__mx-2"><b>Input Headers</b> </span> </button> </h5>
+                        </div>
+                        <div id="panelOneNested" role="region" class="dds__collapse dds__show"
+                            aria-labelledby="headline1" aria-expanded="true">
+                            <div class="dds__accordion-card-body"><b>Either User can provide the Solution IDs one by one
+                                    or can simply load them all by uploading Excel,CSV files having Solution IDs
+                                    Details.</b> </div>
+                            <div class="dds__accordion-card-body">
+                                <div class="dds__secondary-accordion">
+                                    <h5 class="dds__mb-0"> <button
+                                            aria-label="Show / Hide content for Secondary Accordion"
+                                            class="dds__secondary-accordion-btn dds__d-flex dds__collapsed"
+                                            type="button" data-toggle="dds__collapse"
+                                            data-target="#secondaryAccordionOne" aria-expanded="false"
+                                            aria-controls="secondaryAccordionOne" role="button"> <i
+                                                class="dds__icons dds__arrow-tri-solid-right" aria-hidden="true"></i>
+                                            <span class="dds__mx-2">Provide Solution IDs</span> </button> </h5>
+                                    <div id="secondaryAccordionOne" class="dds__collapse" aria-expanded="true"
+                                        role="region">
+                                        <div class="dds__secondary-accordion-body dds__mb-2">
+                                            <div id="inputContainer" class="inputContainer">
+                                                <div id="repeatTHIS">
+                                                    <!-- <span> -->
+                                                        <label for="region"><b>Region:</b></label>
+                                                        <select name="regionName" id="region">
+                                                            <option value="AMER">AMER</option>
+                                                            <option value="EMEA">EMEA</option>
+                                                            <option value="APAC">APAC</option>
+                                                        </select>
+                                                    <!-- </span> -->
+                                                    &nbsp; &nbsp;
+                                                    <!-- <span> -->
+                                                        <label for="sol"><b>SolutionID:</b></label>
+                                                        <input type="text" placeholder="2537884" id="sol">
+                                                    <!-- </span> -->
+                                                    &nbsp; &nbsp;
+                                                    <!-- <span> -->
+                                                        <label for="sales"><b>SaleTool:</b></label>
+                                                        <select name="SalesCHName" id="sales">
+                                                            <option value="Dsa">DSA</option>
+                                                            <option value="Gii">Gii</option>
+                                                        </select>
+                                                    <!-- </span> -->
+                                                    &nbsp; &nbsp;
+                                                    <!-- <span> -->
+                                                        <label for="Env"><b>Env:</b></label>
+                                                        <select name="envName" id="env">
+                                                            <option value="G4">G4</option>
+                                                            <option value="Satging">Staging</option>
+                                                            <option value="Satging">Production</option>
+                                                        </select>
+                                                    <!-- </span> -->
+                                                    &nbsp; &nbsp;
+                                                    <span id="buttonspan">
+                                                        <button style="background-color: white;" class="dds__btn"
+                                                            focusable="false" id="AddNewInputBar" onclick="repeat(event)">
+                                                            <svg class="dds__svg-icons" aria-hidden="true"
+                                                                style="width: 18px; height: 18px;"
+                                                                >
+                                                                <use xlink:href="#dds__add-cir" />
+                                                            </svg>
+                                                        </button>
+                                                    </span>
+                                                </div>
+                                                <div id="shadowdivider">
+                                                    <hr style="width: 705px;margin: 0px 0px 0px 0px;" class="dds__shadow_divider">
+                                                    </hr>
+                                                </div>
+                                                <div id="abutton">
+                                                    <span>
+                                                        <button style="margin-left: 350px;"
+                                                            class="dds__btn dds__btn-primary" id="Audit"
+                                                            onclick="auditHandler()"><b>Audit</b></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dds__secondary-accordion">
+                                    <h5 class="dds__mb-0"> <button
+                                            aria-label="Show / Hide content for Secondary Accordion"
+                                            class="dds__secondary-accordion-btn dds__d-flex dds__collapsed"
+                                            type="button" data-toggle="dds__collapse"
+                                            data-target="#secondaryAccordionTwo" aria-expanded="false"
+                                            aria-controls="secondaryAccordionTwo"> <i
+                                                class="dds__icons dds__arrow-tri-solid-right" aria-hidden="true"></i>
+                                            <span class="dds__mx-2">Upload Solution IDs</span> </button> </h5>
+                                    <div id="secondaryAccordionTwo" class="dds__collapse" aria-expanded="true"
+                                        role="region">
+                                        <div class="dds__secondary-accordion-body">
+                                            <div id="inputUploadContainer" class="inputUploadContainer">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="dds__msthd-brand-ctnr dds__d-none dds__d-lg-block"> <span>SOLUTION AUDIT TOOL</span> </div>
                     </div>
-        </div>
-        <div class="mainbody">
-            <div class="inputContainer">
-                <span>
-                        <label for="region"><b>Region:</b></label>
-                        <select name="regionName" id="region">
-                            <option value="AMER">AMER</option> 
-                            <option value="EMEA">EMEA</option>      
-                            <option value="APAC">APAC</option>
-                        </select>
-                </span>
-                &nbsp; &nbsp;
-                <span>
-                    <label for="sol"><b>SolutionID:</b></label>
-                    <input type="text" placeholder="2537884" id="sol">
-                </span>
-                &nbsp; &nbsp;
-                <span>
-                    <label for="version"><b>Version:</b></label>
-                    <input type="text" placeholder="1" id="version">
-                </span>
-                &nbsp; &nbsp;
-                <span>
-                        <label for="sales"><b>SaleTool:</b></label>
-                        <select name="SalesCHName" id="sales">
-                            <option value="Dsa">DSA</option> 
-                            <option value="Gii">Gii</option>      
-                      </select>
-                </span>
-                &nbsp; &nbsp;
-                <span>
-                    <label for="sales"><b>Env:</b></label>
-                    <select name="envName" id="env">
-                        <option value="G4">G4</option> 
-                        <option value="Satging">Staging</option>
-                        <option value="Satging">Production</option>      
-                  </select>
-                </span>
-                &nbsp; &nbsp;
-                <span>
-                    <button class="dds__btn dds__btn-primary" id="Audit" onclick="auditHandler(region.value,sol.value,version.value,sales.value)"><b>Audit</b></button>
-                </span>
+                    <div class="dds__accordion-card">
+                        <div class="dds__accordion-card-header">
+                            <h5 class="dds__mb-0"> <button class="dds__accordion-btn dds__collapsed dds__d-flex"
+                                    type="button" data-toggle="dds__collapse" data-target="#panelTwoNested"
+                                    aria-expanded="false" aria-controls="panelTwoNested" role="button"> <i
+                                        class="dds__icons dds__chevron-right" aria-hidden="true"></i> <span
+                                        id="headline2" class="dds__mx-2"><b>Errors/Warnings Details</b></span> </button>
+                            </h5>
+                        </div>
+                        <div id="panelTwoNested" role="region" class="dds__collapse" aria-labelledby="headline2">
+                            <div class="dds__accordion-card-body">
+                                <div id="tableContainer" class="tableContainer">
+                                    <table id="exampleTable" data-table="dds__table"
+                                        class="dds__table dds__table-hover dds__table-cmplx dds__table-striped">
+                                    </table>
+                                    <nav id="examplePagination" class="dds__pagination dds__pagination-justified-filter"
+                                        data-toggle="dds__pagination" aria-label="pagination">
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="tableContainer" class="tableContainer">
-                <!-- <table  data-table="dds__table" class="dds__table dds__table-hover dds__table-cmplx dds__table-striped">
-                </table>
-                <nav class="dds__pagination dds__pagination-justified-filter" data-toggle="dds__pagination" aria-label="pagination">
-                </nav> -->
-            </div>
-        </div>
-        <footer class="dds__default-footer">
+            <footer class="dds__default-footer">
                 <nav class="dds__footer-nav">
-                    <div >
+                    <div>
                         <ul class="dds__page-nav">
-                            <li> <a href="#" class="">Site designed and Developed by GOPO TSE</a>
+                            <li>
+                                <a href="#" class="">
+                                    Site designed and Developed by GOPO TSE
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
                 <nav class="dds__footer-legal-nav">
-                    <div >
+                    <div>
                         <ul>
-                            <li> <a href="//www.dell.com/learn/us/en/uscorp1/site-terms-of-use-copyright" class="">© 2021 Dell</a> </li>
-                            <li> <a href="//www.dell.com/learn/us/en/uscorp1/policies-privacy" class="">Privacy Statement</a> </li>
+                            <li> <a href="//www.dell.com/learn/us/en/uscorp1/site-terms-of-use-copyright" class="">©
+                                    2021
+                                    Dell</a> </li>
+                            <li> <a href="//www.dell.com/learn/us/en/uscorp1/policies-privacy" class="">Privacy
+                                    Statement</a> </li>
                         </ul>
                     </div>
                 </nav>
-        </footer>
+            </footer>
+        </div>
     </div>
     <script src="./static/js/index.js"></script>
 </body>
+
 </html>

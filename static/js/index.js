@@ -10,50 +10,60 @@
                 "https://uicore.dellcdn.com/1.6.0/svgs/dds__printer.svg",
                 "https://uicore.dellcdn.com/1.6.0/svgs/dds__gear.svg"
             ], false);
-
-var dataArray = [];
-let pe = document.getElementById("tableContainer");
-let ntab = document.createElement('table');
-let ntabnav = document.createElement('nav');
-ntab.setAttribute("id", "initialtable");
-ntab.setAttribute("data-table", "dds__table");
-
- ntab.setAttribute("class", "dds__table dds__table-hover dds__table-cmplx dds__table-striped");
- ntabnav.setAttribute("class","dds__pagination dds__pagination-justified-filter");
- ntabnav.setAttribute( "data-toggle","dds__pagination");
- ntabnav.setAttribute( "aria-label","pagination");
- pe.appendChild(ntab);
- pe.appendChild(ntabnav);
+            var solarr=[];
+            var i = 0;
+        
+            function repeat(event) {
+                event.stopPropagation();
+                var original= event.target.parentElement.parentElement;
+                var originalc = document.getElementById('inputContainer');
+                var c = originalc.childElementCount;
+                var elements = original.childNodes;
+                var inputTypes = ['input','select'];
+                var subarr=[];
+                for (var j = 0; j < elements.length; j++) {
+                    var elm = elements[j];
+                    if (inputTypes.indexOf(`${elm.tagName}`) && typeof elm.type !== 'undefined' ) {
+                        subarr.push(elm.value);
+    
+                    }
+                }
+                solarr.push(subarr);
+                var clone = original.cloneNode(true);
+                clone.id = "repeatTHIS" + ++i;
+                clone.children[3].value= "";
+                originalc.insertBefore(clone, originalc.children[c - 2]);
+                console.log(solarr)
+            }
 var mock = {
   tableRow: function(howMany) {
       if (howMany == null) howMany = 1;
+      var dataArray=[];
       for (var intI = 0; intI < howMany; intI++) {
           dataArray.push({
               data: ["","","","",""]
           });
       }
-      console.log(dataArray);
       return dataArray;
   }
 };
-mock.tableRow(80);
+var newdataArray = mock.tableRow(40);
+console.log(newdataArray);
 var options = {
   search: true,
   columns:true,
   settings:true,
-  // showData:false,
   print:false,
   import:false,
   sort: true,
   condensed: true,
   header: true,
-  fixedHeight:true,
-  perPage: 10,
-  perPageSelect: [10,20,24,26],
+  perPage: 8,
+  perPageSelect: [8,16,32,64],
   rearrangeableColumns: true,
   layout: {
     row1: "{placeholder:2:end}{settings:1:end}",
-    row2: "{actions:1:start}{placeholder:1}{search:1:end}"
+    row2: "{actions:1:start}{search:1:start}{placeholder:1}"
   },
   data: {
     headings: [
@@ -64,22 +74,26 @@ var options = {
       "Errors"
     ],
     columns: [
-      { select: 0, sort: "asc", fixed: true },
+      { select: 0, sort: "asc", fixed: false },
       { select: 1, sort: "asc", fixed: false },
-      { select: 2, sort: "asc", fixed: false },
-      { select: 3, sort: "asc", fixed: false },
-      { select: 4, sort: "asc", fixed: false }
+      { select: 2,  fixed: false },
+      { select: 3,  fixed: false },
+      { select: 4,  fixed: false }
     ],
-    rows: dataArray
+    rows: []
   }
 };
-ntab.setAttribute("data-table-data",JSON.stringify(options));
-[].forEach.call(document.querySelectorAll("[data-table=\"dds__table\"]"), function (element) {
-  new UIC.Table(element);
+var exampleTable = document.getElementById("exampleTable");
+var exampleTableInstance = new UIC.Table(exampleTable, {
+  ...options,
+  data: { ...options.data, rows: newdataArray },
 });
+
 //hit function
-const getErrosWarnings = async (Region, SolID, Version, SalesTool) => {
+const auditHandler =  () => {
+  solarr.forEach(async()=>{})
   let xmlContent = '';
+  var ndataArray =[];
   var Reg = Region === 'AMER' ? 'AMER' : Region === 'EMEA' ? 'EMEA' : 'ASIA';
   var ST = SalesTool === 'DSA' ? 'Dsa' : 'Gii';
   const raw = `<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:v1=\"http://eDell.dell.com/scm/contracts/v1\" xmlns:v11=\"http://eDell.dell.com/scm/schema/v1\">\r\n<soapenv:Header/>\r\n<soapenv:Body>\r\n<v1:ValidateSolution>\r\n<v1:request>\r\n<v11:Region>${Reg}</v11:Region>\r\n<v11:RequestOrigin>${ST}</v11:RequestOrigin>\r\n<v11:IncludeXPODValidationMessages>false</v11:IncludeXPODValidationMessages>\r\n<v11:SolutionId>${SolID}</v11:SolutionId>\r\n<v11:Version>${Version}</v11:Version>\r\n</v1:request>\r\n</v1:ValidateSolution>\r\n</soapenv:Body>\r\n</soapenv:Envelope>`;
@@ -121,71 +135,20 @@ const getErrosWarnings = async (Region, SolID, Version, SalesTool) => {
         } else {
           td5 = 'NA';
         }
-
-        dataArray.unshift({
-          data: [td1, td2, td3, td4, td5]
+        
+        ndataArray.push({
+          data: [td1,td2,td3,`<span class='war'>${td4}</span>`,`<span class='err'>${td5}</span>`]
         });
        
       });
-      // Object.assign(options.data,{rows:dataArray});
-      let ce = document.getElementsByClassName("dds__table-cmplx-wrapper")[0];
-      let pe = document.getElementById("tableContainer");
-      ce.parentElement.removeChild(ce);
-    
-      let ntab = document.createElement('table');
-      let ntabnav = document.createElement('nav');
-      ntab.setAttribute("id", "maintable");
-      ntab.setAttribute("data-table", "dds__table");
+      console.log(ndataArray);
+      // var examplePagination = document.getElementById("examplePagination");
+      exampleTableInstance.deleteAll();
       
-       ntab.setAttribute("class", "dds__table dds__table-hover dds__table-cmplx dds__table-striped");
-       ntabnav.setAttribute("class","dds__pagination dds__pagination-justified-filter");
-       ntabnav.setAttribute( "data-toggle","dds__pagination");
-       ntabnav.setAttribute( "aria-label","pagination");
-       pe.appendChild(ntab);
-       pe.appendChild(ntabnav);
-       const newarr = [...dataArray];
-       var optionnew = {
-        search: true,
-        columns:true,
-        settings:true,
-        // showData:false,
-        print:false,
-        import:false,
-        sort: true,
-        condensed: true,
-        header: true,
-        fixedHeight:true,
-        perPage: 10,
-        perPageSelect: [10,20,24,26],
-        rearrangeableColumns: true,
-        layout: {
-          row1: "{placeholder:2:end}{settings:1:end}",
-          row2: "{actions:1:start}{placeholder:1}{search:1:end}"
-        },
-        data: {
-          headings: [
-            "SolutionID",
-            "Sales/Region",
-            "Product/OC",
-            "Warnings",
-            "Errors"
-          ],
-          columns: [
-            { select: 0, sort: "asc", fixed: true },
-            { select: 1, sort: "asc", fixed: false },
-            { select: 2, sort: "asc", fixed: false },
-            { select: 3, sort: "asc", fixed: false },
-            { select: 4, sort: "asc", fixed: false }
-          ],
-          rows: newarr
-        }
-      };
-      console.log(newarr);
-      ntab.setAttribute("data-table-data",JSON.stringify(optionnew));
-      [].forEach.call(document.querySelectorAll("[data-table=\"dds__table\"]"), function (element) {
-        new UIC.Table(element);
-    
-      });
+      exampleTableInstance.import({ ...options, data: { ...options.data, rows: ndataArray } });
+      console.log(ndataArray);
+      exampleTableInstance.setItems(ndataArray.length);
+      // examplePagination.Pagination.page(1);
     } else {
       const error = new Error();
       error.message = 'Something went wrong.';
@@ -200,10 +163,10 @@ const getErrosWarnings = async (Region, SolID, Version, SalesTool) => {
 
 
 
-const auditHandler = async (Region, SolID, Version, SalesTool) => {
-  getErrosWarnings(Region, SolID, Version, SalesTool);
+// const auditHandler =  () => {
+//   getErrosWarnings(Region, SolID, Version, SalesTool);
 
-}
+// }
 
 if (typeof exports !== "undefined") {
   module.exports = {
