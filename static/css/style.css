@@ -20,6 +20,23 @@
   color:black;
   border-radius: 0.5em;
 }
+.dds__accordion-card-body{
+  margin-right: 35px;
+}
+.inputUploadContainer{
+  margin-left: 105px;
+  padding-left: 5px;
+  padding-top: 8px;
+  width: 500px;
+  height: 50px;
+  border: 1px solid gray;
+  border-radius: 0.5em;
+}
+#fileinput{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif}
+td{
+  font-weight:  500;
+}
 #AddNewInputBar * {
   pointer-events: none
 }
@@ -66,16 +83,16 @@
 }
 
 
-td:nth-child(1){
-  max-width: 1px;
-}
-
 .war{
   background-color: yellow;
+  
+  white-space:normal;
 
 }
+
 .err{
   background-color:rgba(255, 0, 0, 0.678);
+  white-space:normal;
 }
 body{
 

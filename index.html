@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- UI Core CSS -->
     <script src="./static/js/jquery-3.4.1.min.js"></script>
     <script src="./static/js/popper.min.js"></script>
+    <script src="https://unpkg.com/read-excel-file@4.x/bundle/read-excel-file.min.js"></script>
     <script src="https://uicore.dellcdn.com/1.6.1/js/dds-all.min.js"></script>
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="shortcut icon" type="image/x-icon" href="./static/images/favicon1.ico" />
@@ -147,7 +148,7 @@
                         <div id="panelOneNested" role="region" class="dds__collapse dds__show"
                             aria-labelledby="headline1" aria-expanded="true">
                             <div class="dds__accordion-card-body"><b>Either User can provide the Solution IDs one by one
-                                    or can simply load them all by uploading Excel,CSV files having Solution IDs
+                                    or can simply load them all by uploading Excel/CSV file having Solution IDs
                                     Details.</b> </div>
                             <div class="dds__accordion-card-body">
                                 <div class="dds__secondary-accordion">
@@ -169,13 +170,13 @@
                                                         <select name="regionName" id="region">
                                                             <option value="AMER">AMER</option>
                                                             <option value="EMEA">EMEA</option>
-                                                            <option value="APAC">APAC</option>
+                                                            <option value="ASIA">APAC</option>
                                                         </select>
                                                     <!-- </span> -->
                                                     &nbsp; &nbsp;
                                                     <!-- <span> -->
                                                         <label for="sol"><b>SolutionID:</b></label>
-                                                        <input type="text" placeholder="2537884" id="sol">
+                                                        <input type="text" placeholder="2537884.1" id="sol">
                                                     <!-- </span> -->
                                                     &nbsp; &nbsp;
                                                     <!-- <span> -->
@@ -233,9 +234,20 @@
                                     <div id="secondaryAccordionTwo" class="dds__collapse" aria-expanded="true"
                                         role="region">
                                         <div class="dds__secondary-accordion-body">
+                                            <div style="display: flex;">
                                             <div id="inputUploadContainer" class="inputUploadContainer">
-
+                                                <img id="delete" title="Delete Selected File" src="./static/images/dds__trash.svg" style="display: none;height: 20px;width: 20px;" onclick="deleteFile()">
+                                                    <input type="file" id="fileinput"style="padding-left:4px">
+                                                   <a title="Download Sample File"  download="custom-filename" href="./static/images/SolutionID_Upload_Sample_File.xlsx">
+                                                    <img title="Download Sample File" src="./static/images/dds__download.svg" style="float: right;padding-right: 7px;height: 30px;width: 30px;">
+                                                </a>
                                             </div>
+                                            <div id="uploadAuditButton" style="padding-top: 3px;display: none;">
+                                                <button style="margin-left: 50px;"
+                                                    class="dds__btn dds__btn-primary" id="uploadAudit"
+                                                    onclick="auditHandler()"><b>Audit</b></button>
+                                            </div>
+                                        </div>
                                         </div>
                                     </div>
                                 </div>
