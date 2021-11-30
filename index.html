@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="./static/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://uicore.dellcdn.com/1.6.1/css/dds-reboot.min.css">
     <link rel="stylesheet" href="https://uicore.dellcdn.com/1.6.1/css/dds-all-with-fonts.css">
-    <title>DSA-Gii Errors/Warnings</title>
+    <title>Audit DSA/Gii Solutions</title>
 </head>
 
 <body>
@@ -118,7 +118,7 @@
         </defs>
     </svg>
     <div class="mainContainer">
-        <div class="header dds__navbar dds__msthd-navbar-top">
+        <!-- <div class="header dds__navbar dds__msthd-navbar-top">
             <div class="dds__row dds__no-gutter">
                 <div class="dellIcon">
                     <div class="dds__msthd-icon-ctnr dds__msthd-logo dds__d-lg-block">
@@ -127,6 +127,36 @@
                 </div>
                 <div class="dds__msthd-brand-ctnr dds__d-none dds__d-lg-block"> <span>SOLUTION AUDIT TOOL</span> </div>
             </div>
+        </div> -->
+        <div class="dds__msthd" data-toggle="dds__msthd">
+            <nav class="dds__navbar dds__msthd-navbar-top">
+                <div class="dds__msthd-top dds__container-fluid dds__no-gutters">
+                    <div class="dds__row dds__no-gutter">
+                        <div class="dds__msthd-top-ctnr">
+                            <div class="dds__msthd-icon-ctnr dds__msthd-logo">
+                                <a class="dds__icons dds__msthd-dell-icon" href="//www.dell.com" tabindex="0"
+                                    aria-label="Dell"></a>
+                            </div>
+                        </div>
+                        <div class="dds__msthd-brand-ctnr dds__d-none dds__d-lg-block">
+                            <span>Solution Audit Tool</span>
+                        </div>
+
+                        <div style="margin-left: 1200px;"class="dds__msthd-top-ctnr">
+                            <button class="dds__msthd-icon-ctnr" data-target="msthd-signin-ctnr" aria-label="Sign in"
+                                aria-haspopup="true" aria-expanded="false">
+                                <svg focusable="false">
+                                    <use xlink:href="#dds__user" />
+                                </svg>
+                                <span class="dds__badge dds__badge-success" hidden>
+                                    <i class="dds__icons dds__check"></i>
+                                </span>
+                                <span class="dds__msthd-label dds__text-truncate">Sign In</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
         <div>
             <div class="mainbody">
@@ -143,14 +173,16 @@
                                     data-toggle="dds__collapse" data-target="#panelOneNested" aria-expanded="true"
                                     aria-controls="panelOneNested"> <i class="dds__icons dds__chevron-right"
                                         aria-hidden="true"></i>
-                                    <span id="headline1" class="dds__mx-2"><b>Input Headers</b> </span> </button> </h5>
+                                    <span id="headline1" class="dds__mx-2"><b>Input Headers</b> </span>
+                                </button> </h5>
                         </div>
                         <div id="panelOneNested" role="region" class="dds__collapse dds__show"
                             aria-labelledby="headline1" aria-expanded="true">
-                            <div class="dds__accordion-card-body"><b>Either User can provide the Solution IDs one by one
+                            <div style="margin-bottom: 20px"class="dds__accordion-card-body"><b>Either User can provide the Solution IDs
+                                    one by one
                                     or can simply load them all by uploading Excel/CSV file having Solution IDs
                                     Details.</b> </div>
-                            <div class="dds__accordion-card-body">
+                            <div style="margin-bottom: 20px"class="dds__accordion-card-body">
                                 <div class="dds__secondary-accordion">
                                     <h5 class="dds__mb-0"> <button
                                             aria-label="Show / Hide content for Secondary Accordion"
@@ -166,49 +198,50 @@
                                             <div id="inputContainer" class="inputContainer">
                                                 <div id="repeatTHIS">
                                                     <!-- <span> -->
-                                                        <label for="region"><b>Region:</b></label>
-                                                        <select name="regionName" id="region">
-                                                            <option value="AMER">AMER</option>
-                                                            <option value="EMEA">EMEA</option>
-                                                            <option value="ASIA">APAC</option>
-                                                        </select>
+                                                    <label for="region"><b>Region:</b></label>
+                                                    <select name="regionName" id="region">
+                                                        <option value="AMER">AMER</option>
+                                                        <option value="EMEA">EMEA</option>
+                                                        <option value="ASIA">APAC</option>
+                                                    </select>
                                                     <!-- </span> -->
                                                     &nbsp; &nbsp;
                                                     <!-- <span> -->
-                                                        <label for="sol"><b>SolutionID:</b></label>
-                                                        <input type="text" placeholder="2537884.1" id="sol">
+                                                    <label for="sol"><b>SolutionID:</b></label>
+                                                    <input type="text" placeholder="2537884.1" id="sol">
                                                     <!-- </span> -->
                                                     &nbsp; &nbsp;
                                                     <!-- <span> -->
-                                                        <label for="sales"><b>SaleTool:</b></label>
-                                                        <select name="SalesCHName" id="sales">
-                                                            <option value="Dsa">DSA</option>
-                                                            <option value="Gii">Gii</option>
-                                                        </select>
+                                                    <label for="sales"><b>SaleTool:</b></label>
+                                                    <select name="SalesCHName" id="sales">
+                                                        <option value="Dsa">DSA</option>
+                                                        <option value="Gii">Gii</option>
+                                                    </select>
                                                     <!-- </span> -->
                                                     &nbsp; &nbsp;
                                                     <!-- <span> -->
-                                                        <label for="Env"><b>Env:</b></label>
-                                                        <select name="envName" id="env">
-                                                            <option value="G4">G4</option>
-                                                            <option value="Satging">Staging</option>
-                                                            <option value="Satging">Production</option>
-                                                        </select>
+                                                    <label for="Env"><b>Env:</b></label>
+                                                    <select name="envName" id="env">
+                                                        <option value="G4">G4</option>
+                                                        <option value="Satging">Staging</option>
+                                                        <option value="Satging">Production</option>
+                                                    </select>
                                                     <!-- </span> -->
                                                     &nbsp; &nbsp;
                                                     <span id="buttonspan">
                                                         <button style="background-color: white;" class="dds__btn"
-                                                            focusable="false" id="AddNewInputBar" onclick="repeat(event)">
+                                                            focusable="false" id="AddNewInputBar"
+                                                            onclick="repeat(event)">
                                                             <svg class="dds__svg-icons" aria-hidden="true"
-                                                                style="width: 18px; height: 18px;"
-                                                                >
+                                                                style="width: 18px; height: 18px;">
                                                                 <use xlink:href="#dds__add-cir" />
                                                             </svg>
                                                         </button>
                                                     </span>
                                                 </div>
                                                 <div id="shadowdivider">
-                                                    <hr style="width: 705px;margin: 0px 0px 0px 0px;" class="dds__shadow_divider">
+                                                    <hr style="width: 705px;margin: 0px 0px 0px 0px;"
+                                                        class="dds__shadow_divider">
                                                     </hr>
                                                 </div>
                                                 <div id="abutton">
@@ -235,19 +268,24 @@
                                         role="region">
                                         <div class="dds__secondary-accordion-body">
                                             <div style="display: flex;">
-                                            <div id="inputUploadContainer" class="inputUploadContainer">
-                                                <img id="delete" title="Delete Selected File" src="./static/images/dds__trash.svg" style="display: none;height: 20px;width: 20px;" onclick="deleteFile()">
-                                                    <input type="file" id="fileinput"style="padding-left:4px">
-                                                   <a title="Download Sample File"  download="custom-filename" href="./static/images/SolutionID_Upload_Sample_File.xlsx">
-                                                    <img title="Download Sample File" src="./static/images/dds__download.svg" style="float: right;padding-right: 7px;height: 30px;width: 30px;">
-                                                </a>
+                                                <div id="inputUploadContainer" class="inputUploadContainer">
+                                                    <img id="delete" title="Delete Selected File"
+                                                        src="./static/images/dds__trash.svg"
+                                                        style="display: none;height: 20px;width: 20px;"
+                                                        onclick="deleteFile()">
+                                                    <input type="file" id="fileinput" style="padding-left:4px">
+                                                    <a title="Download Sample File" download="custom-filename"
+                                                        href="./static/images/SolutionID_Upload_Sample_File.xlsx">
+                                                        <img title="Download Sample File"
+                                                            src="./static/images/dds__download.svg"
+                                                            style="float: right;padding-right: 7px;height: 30px;width: 30px;">
+                                                    </a>
+                                                </div>
+                                                <div id="uploadAuditButton" style="padding-top: 3px;display: none;">
+                                                    <button style="margin-left: 50px;" class="dds__btn dds__btn-primary"
+                                                        id="uploadAudit" onclick="auditHandler()"><b>Audit</b></button>
+                                                </div>
                                             </div>
-                                            <div id="uploadAuditButton" style="padding-top: 3px;display: none;">
-                                                <button style="margin-left: 50px;"
-                                                    class="dds__btn dds__btn-primary" id="uploadAudit"
-                                                    onclick="auditHandler()"><b>Audit</b></button>
-                                            </div>
-                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -260,7 +298,8 @@
                                     type="button" data-toggle="dds__collapse" data-target="#panelTwoNested"
                                     aria-expanded="false" aria-controls="panelTwoNested" role="button"> <i
                                         class="dds__icons dds__chevron-right" aria-hidden="true"></i> <span
-                                        id="headline2" class="dds__mx-2"><b>Errors/Warnings Details</b></span> </button>
+                                        id="headline2" class="dds__mx-2"><b>Errors/Warnings Details</b></span>
+                                </button>
                             </h5>
                         </div>
                         <div id="panelTwoNested" role="region" class="dds__collapse" aria-labelledby="headline2">
@@ -303,8 +342,8 @@
                 </nav>
             </footer>
         </div>
-    </div>
-    <script src="./static/js/index.js"></script>
+
+        <script src="./static/js/index.js"></script>
 </body>
 
 </html>

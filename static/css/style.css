@@ -22,6 +22,7 @@
 }
 .dds__accordion-card-body{
   margin-right: 35px;
+  margin-bottom: 70px;
 }
 .inputUploadContainer{
   margin-left: 105px;
@@ -46,10 +47,10 @@ td{
 .mainbody{
   padding-left: 0px;
   margin-top: 10px;
-  height: 544px;
+  height: 535px;
   padding-top: 5px;
-  margin-left: 30px;
-  margin-right: 30px;
+  margin-left: 60px;
+  margin-right: 60px;
   overflow-y: auto;
   /* border: 2px solid lightgrey; */
   border-radius: 0.6em;
@@ -57,9 +58,12 @@ td{
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
-.dds__show-hide-container{
-  margin-left: 600px;
+.icon{
+  color: aqua;
 }
+/* .dds__show-hide-container{
+  margin-left: 10px;
+} */
 /* width */
 ::-webkit-scrollbar {
   width: 15px;
@@ -94,7 +98,7 @@ td{
   background-color:rgba(255, 0, 0, 0.678);
   white-space:normal;
 }
-body{
 
-  background-color: beige;
+body{
+  font-family: "Cordia New","Microsoft Sans Serif",Utsaah,"Devanagari MT","Nirmala UI",Latha,InaiMathi,Gautami,"Telugu Sangam MN",Tunga,"Kannada Sangam MN",Kartika,"Malayalam Sangam MN",Shruti,"Nirmala UI","Gujarati MT","Gujarati Sangam MN",Vrinda,"Bangla Sangam MN","Meiryo UI Reg","メイリオ Reg","MS UI Gothic Reg","Hiragino Kaku Gothic Reg","ヒラギノ角ゴ Pro W3 Reg","Microsoft YaHei","微软雅黑","Hiragino Sans GB","Microsoft JhengHei","微軟正黑體","Malgun Gothic","맑은 고딕",Gulim,AppleGothic,"Apple LiGothic","LiHei Pro",Osaka,STHeiti,"华文黑体",STXihei,"华文细黑",SimHei,"黑体","Arial Unicode MS",Arial,sans-serif;
 }
