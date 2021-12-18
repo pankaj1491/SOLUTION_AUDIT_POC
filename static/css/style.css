@@ -44,6 +44,9 @@ td{
 .dds__default-footer{
   position: fixed;
 }
+.RULE{
+  font-weight: bolder
+}
 .mainbody{
   padding-left: 0px;
   margin-top: 10px;
