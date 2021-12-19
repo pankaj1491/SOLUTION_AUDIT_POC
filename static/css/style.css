@@ -47,6 +47,19 @@ td{
 .RULE{
   font-weight: bolder
 }
+.dds__modal-content {
+  background-clip: padding-box;
+  background-color: snow;
+  /* border: 0.0625rem solid rgba(0, 0, 0, 0.2); */
+  border-radius: 0.0625rem;
+  display: flex;
+  flex-direction: column;
+  /* outline: 0; */
+  padding: 1.5rem;
+  pointer-events: auto;
+  position: relative;
+  width: 70%;
+}
 .mainbody{
   padding-left: 0px;
   margin-top: 10px;

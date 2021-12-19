@@ -3,7 +3,11 @@ UIC.loadURLSVGs([
 
   "https://uicore.dellcdn.com/1.6.0/svgs/dds__loading-sqrs.svg"
 ], false);
-
+var tableAccordion = new window.UIC.Collapse(document.getElementById('colapbutton'));
+document.getElementById('panelTwoNested').addEventListener("uicShowHideShown", () => {
+ 
+  document.getElementById('panelTwoNested').scrollIntoView();
+});
 window.addEventListener('load', function (event) {
   // all resources finished loading
   document.getElementsByClassName("dds__msthd-label dds__text-truncate")[0].textContent = localStorage.getItem('Name');
@@ -203,6 +207,8 @@ const getErrosWarnings = async () => {
   })
   formsubmitmodal.hide();
   uploadsubmitmodal.hide();
+  tableAccordion.show();
+
   return ndataArray;
  
 };
@@ -227,7 +233,7 @@ const auditHandler = async () => {
 }
 const formauditHandler = async (event) => {
   event.preventDefault();
-  solarr=[];
+  var newarr=[];
 
   var original = event.target.parentElement.parentElement.parentElement.parentElement;
   var elements = original.childNodes;
@@ -248,30 +254,21 @@ const formauditHandler = async (event) => {
           }
 
         }
-        solarr.push(subarr);
+        newarr.push(subarr);
       }
 
     }
   }
 
-  solarr.forEach((arr1, index) => {
-
-    if (arr1[1] === "") {
-      solarr.splice(index, 1);
-    }
-
-  })
-
+  solarr= newarr.filter((item) => item[1] !== '');
   if (solarr.length === 0) {
-    alert("Please check if you have provided valid inputs.");
-  }
-  else if (solarr.length >= 1 && solarr[0][1] === '') {
     alert("Please check if you have provided valid inputs.");
   }
   else {
     formsubmitmodal.show();
     var arr = await getErrosWarnings();
-
+  
+   
     var examplePagination = document.getElementById("examplePagination"); //works fine
     exampleTableInstance.deleteAll();//works fine as i see that initial tables rows are deleted
   
@@ -286,6 +283,7 @@ const formauditHandler = async (event) => {
 }
 const deleteFile = () => {
   document.getElementById("fileinput").value = "";
+  document.getElementById("uploadAuditButton").style.display = "none";
 }
 var input = document.getElementById("fileinput");
 input.addEventListener('change', function () {
@@ -299,6 +297,5 @@ input.addEventListener('change', function () {
     })
     solarr = [...newarr];
     document.getElementById("uploadAuditButton").style.display = "inline";
-    document.getElementById("delete").style.display = "inline";
   });
 });
